@@ -1,0 +1,35 @@
+:root{--bg:#1b0e1d;--ink:#3b1f2c;--paper:#f8eef1;--gold:#d8b26a;--wine:#5b1631;--txt:#f6e4ea}
+*{box-sizing:border-box;margin:0}html,body{min-height:100%}
+body{background:radial-gradient(120% 90% at 50% 0,#33173a,var(--bg));color:var(--txt);font-family:'Fraunces',Georgia,serif}
+.screen{display:none;min-height:100dvh;padding:24px 14px;flex-direction:column;align-items:center;justify-content:center;gap:18px;text-align:center}.screen.on{display:flex;animation:in .8s ease}
+@keyframes in{from{opacity:0}}
+.hint{font-style:italic;opacity:.85;max-width:26ch}
+.lock{position:relative;width:min(320px,86vw)}.lock svg{width:100%;display:block;overflow:visible}
+#shackle{transition:transform .9s cubic-bezier(.3,1.5,.5,1);transform-origin:112px 132px}
+.open #shackle{transform:translateY(-28px) rotate(-16deg)}.open{animation:beat 1s ease .5s both}
+@keyframes beat{50%{transform:scale(1.05)}to{transform:scale(1);opacity:0}}
+.plate{position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);display:flex;gap:10px}
+.grp{display:flex;flex-direction:column;align-items:center;gap:3px}.row{display:flex;gap:2px}
+.wheel{display:flex;flex-direction:column;align-items:center}
+.wheel button{width:25px;height:17px;border:0;background:none;color:#ffd9e3;font-size:11px;cursor:pointer}
+.win{width:25px;height:34px;overflow:hidden;background:#fff4f6;border-radius:6px;color:var(--wine);touch-action:none;box-shadow:inset 0 2px 4px #0005}
+.strip{transition:transform .25s}.strip b{display:block;height:34px;font:600 22px/34px 'Fraunces',serif}
+.grp small{font-size:11px;font-style:italic;color:#ffd9e3}
+.cover{position:relative;width:min(360px,88vw);aspect-ratio:3/4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;padding:36px;background:linear-gradient(145deg,#6d1b3b,var(--wine));border-radius:6px 16px 16px 6px;border-left:14px solid #3f0e22;box-shadow:0 30px 60px #000a}
+.cover::before{content:"";position:absolute;inset:14px;border:1.5px dashed var(--gold);border-radius:4px 10px 10px 4px;opacity:.7}
+h1{font:italic 400 31px/1.2 'Fraunces',serif;color:#f3d9a4;min-height:5.2em;display:flex;align-items:center}
+.btn{opacity:0;pointer-events:none;transition:opacity 1s;border:1.5px solid var(--gold);background:none;color:#f3d9a4;padding:10px 22px;border-radius:99px;font:inherit;cursor:pointer;z-index:1}.btn.on{opacity:1;pointer-events:auto}
+.book{width:min(980px,100%);display:grid;grid-template-columns:1fr 1fr;background:var(--paper);color:var(--ink);border-radius:8px 14px 14px 8px;box-shadow:0 30px 60px #000a,0 0 0 8px var(--wine);position:relative;perspective:1600px;min-height:min(540px,80dvh)}
+.book::after{content:"";position:absolute;left:50%;top:0;bottom:0;width:60px;transform:translateX(-50%);background:linear-gradient(90deg,transparent,#0000001a 47%,#0000002e 50%,#0000001a 53%,transparent);pointer-events:none}
+.page{padding:28px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;min-width:0}
+.polaroid{background:#fff;padding:10px 10px 12px;box-shadow:0 8px 20px #0003;transform:rotate(-2deg);max-width:100%}
+.polaroid img,.polaroid video{display:block;max-width:100%;max-height:52dvh;margin:auto;background:#eee}
+.polaroid figcaption{font:600 19px 'Caveat',cursive;padding-top:8px;color:#7a4a5c}
+.phrase{font:600 30px/1.2 'Caveat','Segoe Script',cursive;max-width:22ch}
+.sticker svg{width:92px;transform:rotate(6deg)}.big svg{width:150px}
+.turn-fw .right{animation:tf .6s ease both;transform-origin:left center}.turn-bw .left{animation:tb .6s ease both;transform-origin:right center}
+@keyframes tf{from{transform:rotateY(-60deg);opacity:0}}@keyframes tb{from{transform:rotateY(60deg);opacity:0}}
+.nav{display:flex;align-items:center;gap:18px}
+.round{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--gold);background:none;color:#f3d9a4;font-size:26px;cursor:pointer}.round:disabled{opacity:.3}
+@media(max-width:760px){.book{grid-template-columns:1fr}.book::after{display:none}.page{padding:20px 16px}.phrase{font-size:27px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
